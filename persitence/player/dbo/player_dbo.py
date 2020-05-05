@@ -25,7 +25,7 @@ class PlayerDBO:
         )
 
 
-def to_dbo(player: Player) -> PlayerDBO:
+def player_to_dbo(player: Player) -> PlayerDBO:
     return PlayerDBO(
         id=uuid.uuid4(),
         name=player.name,
@@ -34,6 +34,3 @@ def to_dbo(player: Player) -> PlayerDBO:
         email=player.email,
         password=player.password
     )
-
-
-Player.to_dbo = to_dbo

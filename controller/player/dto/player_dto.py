@@ -24,8 +24,7 @@ class PlayerDTO:
         )
 
 
-@property
-def to_dto(player: Player) -> PlayerDTO:
+def player_to_dto(player: Player) -> PlayerDTO:
     return PlayerDTO(
         id=str(player.id),
         name=player.name,
@@ -34,6 +33,3 @@ def to_dto(player: Player) -> PlayerDTO:
         email=player.email,
         password=player.password
     )
-
-
-Player.to_dto = to_dto
