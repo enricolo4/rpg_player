@@ -7,15 +7,6 @@ from domain.model.player import Player
 from domain.service.player.player_service import PlayerService
 
 
-# PlayerDTO(
-#     name=request.media["name"],
-#     nickname=request.media["nickname"],
-#     birth_date=request.media["birth_date"],
-#     email=request.media["email"],
-#     password=request.media["password"]
-# )
-
-
 class PlayerController:
     def __init__(self):
         self.__player_service = PlayerService()
@@ -25,4 +16,4 @@ class PlayerController:
 
         player: Player = self.__player_service.save(player_dto.to_model)
 
-        response.body = json.dumps(player.to_dto().__dict__)
+        response.body = json.dumps(player.to_dto.__dict__)

@@ -1,21 +1,22 @@
+import uuid
+from uuid import UUID
 from dataclasses import dataclass
-from typing import Optional
 
 from domain.model.player import Player
 
 
 @dataclass
-class PlayerDTO:
+class PlayerDBO:
+    id: UUID
     name: str
     nickname: str
     birth_date: str
     email: str
     password: str
-    id: Optional[str] = None
 
-    @property
     def to_model(self) -> Player:
         return Player(
+            id=self.id,
             name=self.name,
             nickname=self.nickname,
             birth_date=self.birth_date,
@@ -24,10 +25,9 @@ class PlayerDTO:
         )
 
 
-@property
-def to_dto(player: Player) -> PlayerDTO:
-    return PlayerDTO(
-        id=str(player.id),
+def to_dbo(player: Player) -> PlayerDBO:
+    return PlayerDBO(
+        id=uuid.uuid4(),
         name=player.name,
         nickname=player.nickname,
         birth_date=player.birth_date,
@@ -36,4 +36,4 @@ def to_dto(player: Player) -> PlayerDTO:
     )
 
 
-Player.to_dto = to_dto
+Player.to_dbo = to_dbo

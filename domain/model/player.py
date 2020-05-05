@@ -1,3 +1,5 @@
+from typing import Optional
+from uuid import UUID
 from dataclasses import dataclass
 
 
@@ -8,3 +10,4 @@ class Player:
     birth_date: str
     email: str
     password: str
+    id: Optional[UUID] = None
