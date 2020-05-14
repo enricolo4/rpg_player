@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-from persitence.base_dbo import BaseDBO
+from persistence.base_dbo import BaseDBO
 from shared.singleton import Singleton
 
 options = {

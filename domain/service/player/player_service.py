@@ -1,5 +1,5 @@
 from domain.model.player import Player
-from persitence.player.repository.player_repository import PlayerRepository
+from persistence.player.repository.player_repository import PlayerRepository
 
 
 class PlayerService:

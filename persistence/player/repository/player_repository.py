@@ -1,5 +1,5 @@
 from domain.model.player import Player
-from persitence.player.dbo.player_dbo import PlayerDBO, player_to_dbo
+from persistence.player.dbo.player_dbo import PlayerDBO, player_to_dbo
 
 
 class PlayerRepository:
