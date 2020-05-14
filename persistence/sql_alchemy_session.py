@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import scoped_session, sessionmaker
+from sqlalchemy.orm import scoped_session, sessionmaker, Session
 
 from persistence.base_dbo import BaseDBO
 from shared.singleton import Singleton
@@ -24,7 +24,7 @@ class SQLAlchemySession(metaclass=Singleton):
         self.__environment()
 
     @property
-    def session(self):
+    def session(self) -> scoped_session:
         return self.__session
 
     def __init_session(self):

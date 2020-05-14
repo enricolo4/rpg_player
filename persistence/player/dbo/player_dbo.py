@@ -1,22 +1,23 @@
 import uuid
-from uuid import UUID
-from dataclasses import dataclass
+
+from sqlalchemy import Column, String
 
 from domain.model.player import Player
+from persistence.base_dbo import BaseDBO
 
 
-@dataclass
-class PlayerDBO:
-    id: UUID
-    name: str
-    nickname: str
-    birth_date: str
-    email: str
-    password: str
+class PlayerDBO(BaseDBO):
+    __tablename__ = "player"
+
+    name = Column(String)
+    nickname = Column(String)
+    birth_date = Column(String)
+    email = Column(String)
+    password = Column(String)
 
     def to_model(self) -> Player:
         return Player(
-            id=self.id,
+            id=uuid.UUID(self.id),
             name=self.name,
             nickname=self.nickname,
             birth_date=self.birth_date,
@@ -27,7 +28,6 @@ class PlayerDBO:
 
 def player_to_dbo(player: Player) -> PlayerDBO:
     return PlayerDBO(
-        id=uuid.uuid4(),
         name=player.name,
         nickname=player.nickname,
         birth_date=player.birth_date,
